@@ -4,6 +4,7 @@ var url = "http://api.openweathermap.org/data/2.5/weather?";
 navigator.geolocation.getCurrentPosition(success, error);
 function success(position){
 <<<<<<< HEAD
+<<<<<<< HEAD
 	 document.getElementById("location").innerHTML = "latitude: " + position.coords.latitude.toFixed(1) + "° <br />  longitude: " + position.coords.longitude.toFixed(1)+"°";
 	$.getJSON(url + "lat=" + position.coords.latitude + "&lon=" + position.coords.longitude +"&APPID="+squid+"&units=metric", function(data){
 		$('#temp').html((data.main.temp).toFixed(0) + '°C');
@@ -48,12 +49,17 @@ function success(position){
 			break;
 		}
 =======
+=======
+>>>>>>> parent of 35d1643... Updated with styling
 	//var latitute = position.coords.latitude;
 	//var longitude = position.coords.longitude;
 	 document.getElementById("location").innerHTML = "latitude: " + position.coords.latitude + " longitude: " + position.coords.longitude;
 	$.getJSON(url + key + "/" + position.coords.latitude + "," + position.coords.longitude + "?callback=?", function(data){
 		$('#temp').html(((data.currently.temperature - 32)*5/9).toFixed(0) + 'C');
 		$('#minutely').html(data.minutely.summary);
+<<<<<<< HEAD
+>>>>>>> parent of 35d1643... Updated with styling
+=======
 >>>>>>> parent of 35d1643... Updated with styling
 	});
 	}
