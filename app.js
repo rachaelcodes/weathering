@@ -6,8 +6,9 @@ function success(position){
 	 document.getElementById("location").innerHTML = "latitude: " + position.coords.latitude.toFixed(1) + "° <br />  longitude: " + position.coords.longitude.toFixed(1)+"°";
 	$.getJSON(url + "lat=" + position.coords.latitude + "&lon=" + position.coords.longitude +"&APPID="+squid+"&units=metric", function(data){
 		$('#temp').html((data.main.temp).toFixed(0) + '°C');
-		$('#minutely').html(data.weather.description);
-		switch (data.weather.icon){
+		console.log(data.weather[0].description);
+		$('#minutely').html(data.weather[0].description);
+		switch (data.weather[0].icon){
 			case "04d":
 			case "04n":
 			document.body.style.backgroundImage = "url('https://source.unsplash.com/collection/224755')";
