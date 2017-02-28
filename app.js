@@ -1,48 +1,41 @@
 function weather() {
-var squid = "fdaa0b046596f318461f095989d513a2";
-var url = "http://api.openweathermap.org/data/2.5/weather?";
+var squid = "f5c4a4278d8952688d71af38154d7d88";
+var url = "https://api.forecast.io/forecast/";
 navigator.geolocation.getCurrentPosition(success, error);
 function success(position){
 	 document.getElementById("location").innerHTML = "latitude: " + position.coords.latitude.toFixed(1) + "° <br />  longitude: " + position.coords.longitude.toFixed(1)+"°";
-	$.getJSON(url + "lat=" + position.coords.latitude + "&lon=" + position.coords.longitude +"&APPID="+squid+"&units=metric", function(data){
-		$('#temp').html((data.main.temp).toFixed(0) + '°C');
-		console.log(data.weather[0].description);
-		$('#minutely').html(data.weather[0].description);
-		switch (data.weather[0].icon){
-			case "04d":
-			case "04n":
+	$.getJSON(url + squid + "/" + position.coords.latitude + "," + position.coords.longitude + "?callback=?", function(data){
+		$('#temp').html(((data.currently.temperature - 32)*5/9).toFixed(0) + '°C');
+		$('#minutely').html(data.minutely.summary);
+		switch (data.currently.icon){
+			case "cloudy":
 			document.body.style.backgroundImage = "url('https://source.unsplash.com/collection/224755')";
 			break;
-			case "02d":
-			case "03d":
+			case "partly-cloudy-day":
 			document.body.style.backgroundImage = "url('https://source.unsplash.com/collection/411046')";
 			break;
-			case "02n":
-			case "03n":
+			case "partly-cloudy-night":
 			document.body.style.backgroundImage = "url('https://source.unsplash.com/collection/470178')";
 			break;
-			case "01d":
+			case "clear-day":
 			document.body.style.backgroundImage = "url('https://source.unsplash.com/collection/472766')";
 			break;
-			case "01n":
+			case "clear-night":
 			document.body.style.backgroundImage = "url('https://source.unsplash.com/collection/470191')";
 			break;
-			case "09d":
-			case "09n":
-			case "10d":
-			case "10n":
+			case "rain":
 			document.body.style.backgroundImage = "url('https://source.unsplash.com/collection/403069')";
 			break;
-			case "13d":
-			case "13n":
+			case "snow":
 			document.body.style.backgroundImage = "url('https://source.unsplash.com/collection/426534')";
 			break;
-			case "11d":
-			case "11n":
-			document.body.style.backgroundImage = "url('https://source.unsplash.com/collection/541700')";
+			case "sleet":
+			document.body.style.backgroundImage = "url('https://source.unsplash.com/collection/349213')";
 			break;
-			case "50d":
-			case "50n":
+			case "wind":
+			document.body.style.backgroundImage = "url('https://source.unsplash.com/collection/195950')";
+			break;
+			case "fog":
 			document.body.style.backgroundImage = "url('https://source.unsplash.com/collection/1073')";
 			break;
 		}

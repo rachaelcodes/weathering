@@ -1,13 +1,30 @@
 html {
-	font-family: 'Montserrat', sans-serif;
-	background-color: #000;
+	font-family: 'Josefin Sans', sans-serif;
 	color: #fff;
 	text-align: center;
 }
  body {
     margin: 0 auto;
+    background-image: url("https://source.unsplash.com/collection/220381");
+	background-size: cover;
+    background-repeat: no-repeat;
+	background-color: #000;
   } 
 
   h1, h2 {
     font-weight: 300;
   }
+  h1 {
+  	font-family: 'Amatic SC', cursive;
+  	font-size: 3em;
+  }
+  #temp {
+  	font-size: 4em;
+  }
+  footer{
+  	background-color: #000;
+  	font-size: 80%;
+  	position: absolute;
+    bottom: 0;
+    width: 100%;
+}
