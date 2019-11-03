@@ -1,5 +1,5 @@
 function weather() {
-var squid = "f5c4a4278d8952688d71af38154d7d88";
+var squid = "ADD KEY HERE";
 var url = "https://api.forecast.io/forecast/";
 navigator.geolocation.getCurrentPosition(success, error);
 function success(position){
